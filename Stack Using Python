@@ -1,0 +1,63 @@
+l=[]  #Intial Array
+n=int(input("enter the size:"))  #Taking Size Of Stack From user
+Top=-1   #Initially Top Value
+def Push_Into_Stack(no):  
+    global Top  
+    if Top==n-1:     # Checking For Overloading Condition
+        print("OverLoad.. Insertion not possible!")
+    else:
+        Top+=1      
+        l.append(no)
+        print("Pushed!")
+
+def Pop_From_Stack():
+    global Top
+    if Top==-1:        #checking for Overfitting Condition
+        print("Overfitting.... Poping is Not Possible!")
+    else:
+        print(f"{l[Top]} is poped from stack!")
+        del l[Top]
+        Top-=1
+
+def Peek_the_Stack():
+    global Top
+    return l[Top]
+
+def Traverse_The_Stack():
+    print("the elements in the stack is:")
+    print(l)
+
+def search(no):
+    flag=-1
+    for i in range(Top+1):
+        if l[i]==no:
+            flag=i
+    if flag==-1:
+        print(f"{no} is not found!")
+    else:
+        print(f"{number} is found at {flag+1} Position!")
+
+print("#####_Stack Operations_#####")
+print("1.Push\n2.Pop\n3.Peek\n4.Traverse\n5.Search\n6.Exit")
+Choice=int(input("Enter Your Choice:"))
+while Choice!=6:
+    if Choice==1:
+        Number=int(input("Enter a Number to Insert:"))
+        Push_Into_Stack(Number)
+    elif Choice==2:
+        Pop_From_Stack()
+    elif Choice==3:
+        number=Peek_the_Stack()
+        print(f"{number} is Pointed by the Top!")
+    elif Choice==4:
+        Traverse_The_Stack()
+    elif Choice==5:
+        Number=int(input("Enter a Number for Searching:"))
+        search(Number)
+    else:
+        print("Enter a Valid Choice!")
+    print("Stack Operations:")
+    print("1.Push\n2.Pop\n3.Peek\n4.Traverse\n5.Search\n6.Exit")
+    Choice = int(input("Enter your Choice:"))
+else:
+    print("Terminating....")
