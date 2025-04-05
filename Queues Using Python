@@ -1,0 +1,64 @@
+class Queue:
+    def __init__(self):
+        self.front=-1
+        self.rear=-1
+        self.arr=[]
+        self.size=int(input("enter size:"))
+
+    def push(self,n):
+        self.n=n
+        if self.front>=self.size:
+            print("Overloading...")
+            return
+        else:
+            if self.front==-1 and self.rear==-1:
+                self.rear+=1
+            self.front+=1
+            self.arr.append(self.n)
+            print("Inserted!")
+
+    def pop(self):
+        if self.rear==-1:
+            print("Underfitting..Poping is not possible!")
+        else:
+            self.i=self.arr[0]
+            self.rear-=1
+            print(f"{self.arr[0]} is poped!")
+            del self.arr[0]
+
+    def search(self,no):
+        self.no=no
+        if self.no in self.arr:
+            print(f"{self.no} is found at {self.arr.index(self.no)} position!")
+        else:
+            print(f"{self.no} is not found!")
+
+    def traverse(self):
+        if self.arr[0]:
+            print(f"the elements in the queue is {self.arr}")
+        else:
+            print("queue is empty!")
+Queue_Obj=Queue()
+print("#####_Queue Operations_#####")
+print("1.Push\n2.Pop\n3.Traverse\n4.Search\n5.Exit")
+Choice=int(input("Enter Your Choice:"))
+while Choice!=5:
+    if Choice==1:
+        Number=int(input("Enter a Number to Insert:"))
+        Queue_Obj.push(Number)
+    elif Choice==2:
+        Queue_Obj.pop()
+    elif Choice==3:
+        Queue_Obj.traverse()
+    elif Choice==4:
+        Queue_Obj.search(int(input("Enter a number to search:")))
+    elif Choice==5:
+        Number=int(input("Enter a Number for Searching:"))
+        search(Number)
+    else:
+        print("Enter a Valid Choice!")
+    print("Queue Operations:")
+    print("1.Push\n2.Pop\n3.Traverse\n4.Search\n5.Exit")
+    Choice = int(input("Enter your Choice:"))
+else:
+    print("Terminating....")
