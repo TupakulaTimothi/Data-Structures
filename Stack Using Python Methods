@@ -13,7 +13,7 @@ def Push_Into_Stack(no):
 def Pop_From_Stack():
     global Top
     if Top==-1:        #checking for Overfitting Condition
-        print("Overfitting.... Poping is Not Possible!")
+        print("UnderFlow.... Poping is Not Possible!")
     else:
         print(f"{l[Top]} is poped from stack!")
         del l[Top]
@@ -21,11 +21,17 @@ def Pop_From_Stack():
 
 def Peek_the_Stack():
     global Top
+    if Top==-1:
+        print("Stack is empty!")
+        return None
     return l[Top]
 
 def Traverse_The_Stack():
-    print("the elements in the stack is:")
-    print(l)
+    if len(l)==0:
+        print("Stack Is Empty!")
+    else:
+        print("the elements in the stack is:")
+        print(l)
 
 def search(no):
     flag=-1
@@ -35,7 +41,7 @@ def search(no):
     if flag==-1:
         print(f"{no} is not found!")
     else:
-        print(f"{number} is found at {flag+1} Position!")
+        print(f"{no} is found at {flag+1} Position!")
 
 print("#####_Stack Operations_#####")
 print("1.Push\n2.Pop\n3.Peek\n4.Traverse\n5.Search\n6.Exit")
