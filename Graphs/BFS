@@ -1,0 +1,10 @@
+def bfs(start, edges):
+    visited = [start]
+    queue = [start]
+    while queue:
+        curr = queue.pop(0)
+        print(curr, end='->')
+        for neighbor in edges[curr]:
+            if neighbor not in visited:
+                visited.append(neighbor)
+                queue.append(neighbor)
