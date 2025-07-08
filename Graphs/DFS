@@ -1,0 +1,7 @@
+def dfs(curr,visitedarray):
+    visitedarray.append(curr)
+    print(curr,end=' ')
+    currentedges=edges[curr]
+    for i in currentedges:
+        if i not in visitedarray:
+            dfs(i,visitedarray)
