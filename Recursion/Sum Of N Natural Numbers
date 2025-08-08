@@ -1,0 +1,7 @@
+def SumOfNaturalNumbers(n):
+    if n==0:
+        return 0
+    else:
+        return n+sum(n-1)
+n=int(input("Heyy User!\nEnter a Number:"))
+print(f"The Sum of First {n} Natural Numbers is {SumOfNaturalNumbers(n)}")
