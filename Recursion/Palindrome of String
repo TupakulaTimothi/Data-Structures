@@ -1,0 +1,10 @@
+def IsPalindrome(p,s,r):
+    if p==-1:
+        return r
+    else:
+        return IsPalindrome(p-1,s,s[p]+r)
+s=input("Heyy User!Enter a String:")
+if s==IsPalindrome(2,s,''):
+    print("True")
+else:
+    print("False")
