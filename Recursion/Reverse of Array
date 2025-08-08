@@ -1,0 +1,10 @@
+def Reverse(p1,l):
+    p=len(l)-p1-1
+    if p1==p or p1>p:
+        return l
+    else:
+        l[p1],l[p]=l[p],l[p1]
+        return Reverse(p1+1,l)
+
+l1=eval(input("Heyy User!Enter an array:"))
+print(f"The Reverse of {l1} is {Reverse(0,l1)}")
