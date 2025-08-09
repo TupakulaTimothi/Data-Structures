@@ -1,0 +1,10 @@
+def FabinociiSeries(n):
+    if n<=1:
+        return n
+    else:
+        lastNo=FabinociiSeries(n-1)
+        SecondLastNo=FabinociiSeries(n-2)
+        return lastNo+SecondLastNo
+
+no=int(input("Hey User! Enter a Number:"))
+print(f"The Sum first {no} Fibinocii Numbers is {FabinociiSeries(no)}")
