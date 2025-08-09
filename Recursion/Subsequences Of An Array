@@ -1,0 +1,12 @@
+def Subsequences(i,l,ds):
+    if i==3:
+        print(ds)
+        return
+    ds.append(l[i])
+    Subsequences(i+1,l,ds)
+    ds.pop()
+    Subsequences(i+1,l,ds)
+
+l=eval(input("Hey User! Enter a List:"))
+print("The Subsequences of the array is:")
+print(Subsequences(0,l,[]))
