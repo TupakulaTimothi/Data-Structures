@@ -1,0 +1,9 @@
+def ConvertToBinary(n):
+    Binary=[]
+    while n!=1:
+        r=n%2
+        Binary.append(r)
+        n=n/2
+    Binary.append(n)
+    Binary1=reversed(Binary)
+    return list(Binary1)
