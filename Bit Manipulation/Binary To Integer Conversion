@@ -1,0 +1,7 @@
+def BinaryToInteger1(Binary):
+    no=0
+    n=len(Binary)
+    for i in range(n):
+        power=n-(i+1)
+        no=no+(Binary[i]*(2**power))
+    return no
