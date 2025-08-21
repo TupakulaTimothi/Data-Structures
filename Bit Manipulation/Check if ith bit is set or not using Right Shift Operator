@@ -1,0 +1,6 @@
+def SetOrNotUsingRightShift(n,i):
+    r=n>>i
+    if r%2==1:
+        return True
+    else:
+        return False
