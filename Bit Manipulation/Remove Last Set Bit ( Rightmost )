@@ -1,0 +1,7 @@
+def RemoveLastSetBit(n):
+    i=0
+    if n==0:
+        return 0
+    while not n & (1<<i):
+        i=i+1
+    return n ^(1<<i)
