@@ -1,0 +1,12 @@
+def XOR1(n):
+    if n%2==1:
+        return 1
+    elif n%2==2:
+        return n+1
+    elif n%2==3:
+        return 0
+    else:
+        return n
+
+def XOR2(l,r):
+    return XOR1(l)^XOR1(r)
