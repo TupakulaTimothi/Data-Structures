@@ -1,0 +1,116 @@
+# Define a class for the stack
+class Stack:
+    def __init__(self, n):
+        """
+        Constructor to initialize the stack with a specific size.
+        n: The maximum size of the stack.
+        """
+        self.Top = -1  # Initialize the top pointer as -1 to indicate the stack is empty
+        self.n = n     # Maximum size of the stack
+        self.stack = []  # List to hold the stack elements
+
+    def Push_Into_Stack(self, no):
+        """
+        Push an element onto the stack.
+        no: The element to be pushed.
+        """
+        # Check if the stack is full
+        if self.Top == self.n - 1:
+            print("Stack Overflow... Insertion not possible!")
+        else:
+            # Increment the top pointer and add the element to the stack
+            self.Top += 1
+            self.stack.append(no)
+            print("Pushed!")
+
+    def Pop_From_Stack(self):
+        """
+        Pop the top element from the stack.
+        """
+        # Check if the stack is empty
+        if self.Top == -1:
+            print("Stack Underflow... Popping is not possible!")
+        else:
+            # Print and remove the top element
+            print(f"{self.stack[self.Top]} is popped from the stack!")
+            self.stack.pop()
+            self.Top -= 1
+
+    def Peek_the_Stack(self):
+        """
+        Return the top element of the stack without removing it.
+        """
+        # Check if the stack is empty
+        if self.Top == -1:
+            print("Stack is empty!")
+            return None
+        return self.stack[self.Top]
+
+    def Traverse_The_Stack(self):
+        """
+        Print all elements in the stack.
+        """
+        # Check if the stack is empty
+        if not self.stack:
+            print("Stack is empty!")
+        else:
+            print("The elements in the stack are:")
+            print(self.stack)
+
+    def search(self, no):
+        """
+        Search for an element in the stack and return its position.
+        no: The element to be searched for.
+        """
+        flag = -1  # Default value if the element is not found
+        # Iterate through the stack to find the element
+        for i in range(self.Top + 1):
+            if self.stack[i] == no:
+                flag = i
+        # Check the search result
+        if flag == -1:
+            print(f"{no} is not found!")
+        else:
+            print(f"{no} is found at position {flag + 1}!")  # 1-based indexing for position
+
+# Main functionality
+n = int(input("Enter the size of the stack: "))  # Taking size of the stack from the user
+obj = Stack(n)  # Create an instance of the stack with the given size
+
+# Display stack operations menu
+print("##### Stack Operations #####")
+print("1. Push\n2. Pop\n3. Peek\n4. Traverse\n5. Search\n6. Exit")
+
+# Input from the user to perform operations
+Choice = int(input("Enter Your Choice: "))
+while Choice != 6:
+    if Choice == 1:
+        # Push operation
+        Number = int(input("Enter a Number to Insert: "))
+        obj.Push_Into_Stack(Number)
+    elif Choice == 2:
+        # Pop operation
+        obj.Pop_From_Stack()
+    elif Choice == 3:
+        # Peek operation
+        number = obj.Peek_the_Stack()
+        if number is not None:
+            print(f"{number} is pointed by the Top!")
+    elif Choice == 4:
+        # Traverse operation
+        obj.Traverse_The_Stack()
+    elif Choice == 5:
+        # Search operation
+        Number = int(input("Enter a Number for Searching: "))
+        obj.search(Number)
+    else:
+        # Invalid input
+        print("Enter a Valid Choice!")
+
+    # Display the menu again after each operation
+    print("\n##### Stack Operations #####")
+    print("1. Push\n2. Pop\n3. Peek\n4. Traverse\n5. Search\n6. Exit")
+    Choice = int(input("Enter Your Choice: "))
+else:
+    # Exit the loop and terminate
+    print("Terminating...")
